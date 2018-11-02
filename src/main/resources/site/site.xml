@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <config/>
+    <mappings>
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:audio'</match>
+        </mapping>
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:document'</match>
+        </mapping>
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:text'</match>
+        </mapping>
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:video'</match>
+        </mapping>
+
+        <!-- Disabled because this is supported by default in Enonic
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:image'</match>
+        </mapping>
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:vector'</match>
+        </mapping-->
+
+        <!-- Disabled because this cannot be viewed in Chrome/Firefox, but triggers a download instead
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:code'</match>
+        </mapping>
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:data'</match>
+        </mapping>
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:presentation'</match>
+        </mapping>
+        <mapping controller="/site/pages/attachment/attachment.js">
+            <match>type:'media:spreadsheet'</match>
+        </mapping-->
+    </mappings>
+</site>
