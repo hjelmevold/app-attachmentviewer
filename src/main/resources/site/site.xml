@@ -14,38 +14,44 @@
         </field-set>
     </config>
     <mappings>
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <!-- Attachment types that are directly viewable in the browser -->
+        <mapping controller="/lib/attachment/attachment.js">
             <match>type:'media:audio'</match>
         </mapping>
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <mapping controller="/lib/attachment/attachment.js">
             <match>type:'media:document'</match>
         </mapping>
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <mapping controller="/lib/attachment/attachment.js">
             <match>type:'media:text'</match>
         </mapping>
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <mapping controller="/lib/attachment/attachment.js">
             <match>type:'media:video'</match>
         </mapping>
 
+        <!-- Unstructured JSON viewed as plain text-->
+        <mapping controller="/lib/attachment/unstructured.js">
+            <match>type:'base:unstructured'</match>
+        </mapping>
+
         <!-- Disabled because this is supported by default in Enonic
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <mapping controller="/lib/attachment/attachment.js">
             <match>type:'media:image'</match>
         </mapping>
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <mapping controller="/lib/attachment/attachment.js">
             <match>type:'media:vector'</match>
         </mapping-->
 
         <!-- Disabled because this cannot be viewed in Chrome/Firefox, but triggers a download instead
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <mapping controller="/lib/pages/attachment/attachment.js">
             <match>type:'media:code'</match>
         </mapping>
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <mapping controller="/lib/pages/attachment/attachment.js">
             <match>type:'media:data'</match>
         </mapping>
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <mapping controller="/lib/pages/attachment/attachment.js">
             <match>type:'media:presentation'</match>
         </mapping>
-        <mapping controller="/site/pages/attachment/attachment.js">
+        <mapping controller="/lib/pages/attachment/attachment.js">
             <match>type:'media:spreadsheet'</match>
         </mapping-->
     </mappings>
