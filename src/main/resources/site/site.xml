@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-    <config/>
+    <config>
+        <field-set name="settings">
+            <label>App settings</label>
+            <items>
+                <input name="allowViewOnSite" type="CheckBox">
+                    <label>Allow viewing on site</label>
+                    <occurrences minimum="1" maximum="1"/>
+                    <default>true</default>
+                    <help-text>If enabled on site, links of type "content" can be used to view attachments instead of downloading them.</help-text>
+                </input>
+            </items>
+        </field-set>
+    </config>
     <mappings>
         <mapping controller="/site/pages/attachment/attachment.js">
             <match>type:'media:audio'</match>

@@ -6,6 +6,10 @@ var libs = {
 
 function handleGet(req) {
     var content = libs.portal.getContent();
+    var config = libs.portal.getSiteConfig();
+
+    var isEditOrPreview = (req.mode === 'edit' || req.mode === 'preview');
+    var allowViewOnSite = (config && config.allowViewOnSite);
 
     if (!content.data.media) {
         return null;
@@ -14,7 +18,7 @@ function handleGet(req) {
 
         // Don't display Microsoft Word documents in Content Studio preview window, since Chrome/Firefox will download instead of view them
         // application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        if ((req.mode === 'edit' || req.mode === 'preview') && (attachment.mimeType.startsWith('application/msword') || attachment.mimeType.startsWith('application/vnd.'))) {
+        if (isEditOrPreview && (attachment.mimeType.startsWith('application/msword') || attachment.mimeType.startsWith('application/vnd.'))) {
             return {
                 body: '[Microsoft Office document. Preview not supported.]'
             };
@@ -24,9 +28,21 @@ function handleGet(req) {
                 name: attachment.name
             });
 
-            return {
-                body: stream,
-                contentType: attachment.mimeType
+            if (!isEditOrPreview && !allowViewOnSite) {
+                // Download attachment
+                return {
+                    body: stream,
+                    contentType: attachment.mimeType,
+                    headers: {
+                        'Content-Disposition': 'attachment; filename="' + attachment.name + '"' // TODO: check if attachment.name is what's supposed to be written here
+                    }
+                }
+            } else {
+                // View attachment
+                return {
+                    body: stream,
+                    contentType: attachment.mimeType
+                }
             }
         }
     }
