@@ -3,8 +3,6 @@ var libs = {
     portal: require('/lib/xp/portal')
 };
 
-var viewFile = resolve('./attachment.html');
-
 // Response to a GET request
 function handleGet(request) {
     var content = libs.portal.getContent();

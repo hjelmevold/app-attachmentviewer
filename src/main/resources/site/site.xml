@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-    <config>
+    <form>
         <field-set name="settings">
             <label>App settings</label>
             <items>
@@ -12,7 +12,7 @@
                 </input>
             </items>
         </field-set>
-    </config>
+    </form>
     <mappings>
         <!-- Attachment types that are directly viewable in the browser -->
         <mapping controller="/lib/attachment/attachment.js">
